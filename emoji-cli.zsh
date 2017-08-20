@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 function emojify::cli() {
-    local emoji=`$0:A:h/emojify.rb -l | column -t | fzf | awk '{print ":"$1":"}'`
+    local emoji=`emojify -l | column -t | fzf | awk '{print ":"$1":"}'`
     BUFFER=$BUFFER$emoji
     CURSOR=$#BUFFER
     zle redisplay
