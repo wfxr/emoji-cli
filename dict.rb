@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-dict = Hash[
+@dict = Hash[
     '+1',                              0x1f44d,
     '-1',                              0x1f44e,
     '100',                             0x1f4af,
@@ -869,14 +869,3 @@ dict = Hash[
     'zero',                            0x0030,
     'zzz',                             0x1f4a4
 ]
-
-dict.each do |k, v|
-        if v.is_a?(Integer)
-            emoji = v.chr('utf-8')
-            code = "0x%X" % v
-        else
-            emoji = v.reduce('') { |t, x| t += x.chr('utf-8') }
-            code = v.map { |x| "0x%X" % x }.join(",")
-        end
-        puts "%s %s %s" % [k, code, emoji]
-end
