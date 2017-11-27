@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#
+emojify -l | column -t | fzf | awk '{print ":"$1":"}'
